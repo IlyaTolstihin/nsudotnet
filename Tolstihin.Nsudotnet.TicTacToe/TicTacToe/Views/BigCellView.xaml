@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="TicTacToe.Views.BigCellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:TicTacToe.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500" Height="180" Width="180">
+    <Grid>
+        <WrapPanel>
+            <ItemsControl ItemsSource="{Binding SmallCells}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"></UniformGrid>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1" BorderBrush="Black">
+                            <views:SmallCellView DataContext="{Binding .}"></views:SmallCellView>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </WrapPanel>
+        <Image Source="{Binding Foreground}" Stretch="Uniform" IsHitTestVisible="False" Opacity="0.3">
+        </Image>
+    </Grid>
+</UserControl>
