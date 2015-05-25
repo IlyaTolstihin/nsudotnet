@@ -23,7 +23,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </WrapPanel>
-        <Image Source="{Binding Foreground}" Stretch="Uniform" IsHitTestVisible="False" Opacity="0.3">
+        <Image Source="{Binding Symbol, Converter={StaticResource symbolConverter}}" Stretch="Uniform" IsHitTestVisible="False" Opacity="0.3">
         </Image>
     </Grid>
 </UserControl>

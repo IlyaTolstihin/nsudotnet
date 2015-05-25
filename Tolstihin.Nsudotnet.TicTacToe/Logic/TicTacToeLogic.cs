@@ -51,6 +51,14 @@ namespace Logic
                     if (Check(bigCells, clickedBigCell.Symbol))
                     {
                         _field.Symbol = clickedBigCell.Symbol;
+                        foreach (BigCell bigCell in bigCells)
+                        {
+                            foreach (SmallCell smallCell in bigCell.SmallCells)
+                            {
+                                smallCell.Available = false;
+                            }
+                        }
+                        return;
                     }
                 }
                 BigCell availableBigCell = bigCells[smallCellIdx];

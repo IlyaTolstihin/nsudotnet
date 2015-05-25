@@ -17,14 +17,14 @@ namespace TicTacToe.ViewModels
     {
         private readonly IEventAggregator _events;
         private IGameLogic _logic = new TicTacToeLogic();
-        private string _foreground;
-        public string Foreground
+        private Char _symbol;
+        public Char Symbol
         {
-            get { return _foreground; }
+            get { return _symbol; }
             set
             {
-                _foreground = value;
-                NotifyOfPropertyChange(() => Foreground);
+                _symbol = value;
+                NotifyOfPropertyChange(() => Symbol);
             }
         }
         public BindableCollection<BigCellViewModel> BigCells { get; set; }
@@ -46,7 +46,7 @@ namespace TicTacToe.ViewModels
             GameField field = _logic.GetField();
             if (field.Symbol != '\0')
             {
-                Foreground = (string)Application.Current.FindResource(field.Symbol.ToString());
+                Symbol = field.Symbol;
             }
             BigCell[] modelBigCells = field.BigCells;
             int i=0;

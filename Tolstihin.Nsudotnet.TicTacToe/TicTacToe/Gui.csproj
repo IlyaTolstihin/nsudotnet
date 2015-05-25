@@ -85,6 +85,7 @@
     <Compile Include="Views\SmallCellView.xaml.cs">
       <DependentUpon>SmallCellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SymbolConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -120,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValueConverter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,14 +14,14 @@ namespace TicTacToe.ViewModels
     public class BigCellViewModel : PropertyChangedBase
     {
         public int Index { get; private set; }
-        private string _foreground;
-        public string Foreground
+        private Char _symbol;
+        public Char Symbol
         {
-            get { return _foreground; }
+            get { return _symbol; }
             set
             {
-                _foreground = value;
-                NotifyOfPropertyChange(() => Foreground);
+                _symbol = value;
+                NotifyOfPropertyChange(() => Symbol);
             }
         }
         public BindableCollection<SmallCellViewModel> SmallCells { get; set; }
@@ -38,7 +38,7 @@ namespace TicTacToe.ViewModels
         {
             if (bigCell.Symbol != '\0')
             {
-                Foreground = (string)Application.Current.FindResource(bigCell.Symbol.ToString());
+                Symbol = bigCell.Symbol;
             }
             int i = 0;
             SmallCell[] modelSmallCells = bigCell.SmallCells;
